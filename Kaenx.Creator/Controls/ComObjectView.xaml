@@ -17,6 +17,7 @@
         <conv:BoolToVisibility x:Key="BoolToVis" />
         <conv:BoolNegation x:Key="BoolNeg" />
         <conv:BoolToBrush x:Key="BoolToBrush" TrueValue="Red" FalseValue="Black" />
+        <conv:ComObjectToString x:Key="ComObjectToString" />
         
         <ContextMenu x:Key="ListMenu">
             <MenuItem Header="{x:Static p:Resources.gen_clone}" Click="ClickClone" />
@@ -51,7 +52,7 @@
             AllowDrop="True" MouseMove="ListMouseMove" DragOver="ListDragOver" Drop="ListDrop">
             <ListBox.ItemTemplate>
 				<DataTemplate>
-					<TextBlock Text="{Binding Name}" Foreground="{Binding IsNotUsed, Converter={StaticResource BoolToBrush}}" />
+                    <TextBlock Text="{Binding Converter={StaticResource ComObjectToString}}" Foreground="{Binding IsNotUsed, Converter={StaticResource BoolToBrush}}" />
 				</DataTemplate>
 			</ListBox.ItemTemplate>
             <ListBox.ItemContainerStyle>
